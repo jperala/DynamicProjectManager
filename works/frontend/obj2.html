@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Person Details</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Student DB</h1>
+    <form id="f1" onsubmit="return false;">
+        <div id="div2" style="background-color: lightblue; padding: 20px; margin: 120px;">
+            <table>
+            <td>
+            <input id="name" placeholder="Enter your name"  required  style="padding: 5px; margin: 10px;"></input></td>
+           <td><input id="country" placeholder="Enter your country" required style="padding: 5px; margin: 10px;"></input></td>
+            <td><input id="education" placeholder="Enter your education" required style="padding: 5px; margin: 10px;"></input></td>
+            </table>
+<br></br>
+
+            <button type="button" onclick="insert()" style=" margin: 10px;color: blueviolet;background-color: chartreuse;">Input</button>
+            <button type="button" onclick="show()" style=" margin: 10px;color: black;background-color: brown;">Show</button>
+            <button type="button" onclick="clearInputs()" style=" margin: 10px;background-color: crimson;color: bisque;">Clear Inputs</button>
+            <button type="button" onclick="clearDisplay()" style=" margin: 10px;background-color: darkgoldenrod;color: darkslategray;">Clear Display</button>
+        
+    </form>
+    <br></br>
+    <div id="personDisplay"></div>
+    <div id="div1"></div>
+    <script src="obj2.js"></script>
+</body>
+</html>
