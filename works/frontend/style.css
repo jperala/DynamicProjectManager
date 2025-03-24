@@ -1,0 +1,25 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.inline-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust spacing between elements */
+}
+
+.inline-container h1 {
+  margin: 0;
+}
+
+.inline-container input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.inline-container button {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}

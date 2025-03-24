@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple JS Popup</title>
+</head>
+<body>
+    <h1>Welcome to USA</h1>
+    <input type="text" id="userInput" placeholder="Enter something">
+    <button id="showPopupBtn">Click to trigger</button>
+
+    <script>
+        document.getElementById('showPopupBtn').onclick = function() {
+            alert('Welcome to JS '+document.getElementById('userInput').value);
+        };
+    </script>
+</body>
+</html>

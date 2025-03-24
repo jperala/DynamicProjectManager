@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input id="user_input" placeholder="Enter  the number of lines" onkeyup="generateShape()"></input>
+    <div id="div2"></div>
+   <script >
+    let colors=["yellow","green","red"];
+    let idx=0;
+    let size=colors.length;
+
+    function generateShape()
+    {
+        let n=parseInt(document.getElementById("user_input").value);
+        let text ="";
+        for(let i=0;i<=n;i++)
+    {
+        for(let j=0;j<i;j++)
+    {
+        text+="* "
+    }
+    text+="<br>";
+    }
+    document.getElementById("div2").innerHTML=text;
+    document.getElementById("div2").style="color:"+colors[idx]; 
+
+    }
+   </script>
+   
+
+</body>
+</html>
