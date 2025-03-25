@@ -1,0 +1,13 @@
+[
+    { "name": "Task 1 Expectation Document", "path": "works/Task_1/index.html" },
+    { "name": "Task 2 Basic HTML Styling", "path": "works/Task_2/index.html" },
+    { "name": "Task 3 CSS Hover", "path": "works/Task_3/index.html" },
+    { "name": "Task 4 Welcome to JS", "path": "works/Task_4/index.html" },
+    { "name": "Task 5 Calculator with JS", "path": "works/Task_5/index.html" },
+    { "name": "Task 7 Console Output", "path": "works/Task_6/index.html" },
+    { "name": "Task 8 String Operation", "path": "works/Task_7/index.html" },
+    { "name": "Task 9 Conditions", "path": "works/Task_8/index.html" },
+    { "name": "Task 10 Call-Stack with Array", "path": "works/Task_9/index.html" },
+    { "name": "Task 11 Class Work", "path": "works/Task_10/index.html" },
+    { "name": "Task 12 Class Work", "path": "works/Task_11/index.html" }
+]

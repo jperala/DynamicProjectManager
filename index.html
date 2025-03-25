@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Organizer</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Task Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header_div">Welcome to Project Organizer</header>
-
-    <!-- Welcome Page -->
-    <section id="welcome_page">
-        <h1>Select an Option Below</h1>
-        <button id="view_all_files">View All Projects</button>
-        <button id="view_monthly_development">Monthly Development</button>
-    </section>
-
-    <!-- Projects Grid Section -->
-    <section id="projects_grid" class="grid_view hidden"></section>
-
-    <!-- Back Button -->
-    <button id="back_button" class="hidden">Back</button>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-Hello
+    <header id="main-header">
+        <h1>Dynamic Project Gallery</h1>
+    </header>
+    
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Class Tasks</h2>
+            <ul id="task-list"></ul> <!-- List of tasks will be dynamically added here -->
+        </nav>
+        
+        <main>
+            <!-- Task Title -->
+            <div id="task-box">
+                <h2 id="task-title">Select a task to view</h2> <!-- Placeholder for task title -->
+            </div>
+            <!-- Iframe for task content -->
+            <div class="iframe-container">
+                <iframe id="task-frame" src="works/landing.html"></iframe>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
