@@ -1,44 +1,77 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+    <style>
+        /* Center everything on the page */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #div1 {
+            margin-top: 20px;
+        }
+
+        input {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #finalDiv {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <div id ="div1">
-<input id="min" placeholder="Please enter the min value"></input>
-<input id ="max" placeholder="Please enter the max value"></input>
-<br></br>
-<button style="margin-left: 130px;" onclick="generate()">Generate</button>
-        </div>
-        <div id="finalDiv"></div>
+    <h1>RANDOM NUMBER GENERATOR</h1>
+    <div id="div1">
+        <input id="min" placeholder="Enter the min value">
+        <input id="max" placeholder="Enter the max value">
+        <br><br>
+        <button onclick="generate()">Generate</button>
+    </div>
+    <div id="finalDiv"></div>
+
     <script>
-        let colors=["red","green","blue"];
-        let x = Math.random();
-        console.log("The Random value x = "+x);
-        let y = Math.floor(10*x);
-        console.log("The random value x multiplied by 10 times = "+y);
-        
-        function generate()
-        {
-        let m1 = parseInt(document.getElementById('min').value);
-        let m2 = parseInt(document.getElementById('max').value);
-        let rValue = Math.floor(Math.random() * (m2 - m1 + 1)) + m1;
-        //let size=colors.length;
-       // document.getElementById("finalDiv").style=colors[Math.floor(Math.random()*size())];
-        document.getElementById("finalDiv").innerHTML="The Random value = "+rValue;
-       
+        function generate() {
+            let m1 = parseInt(document.getElementById('min').value);
+            let m2 = parseInt(document.getElementById('max').value);
+
+            // Check if the input values are valid numbers
+            if (isNaN(m1) || isNaN(m2)) {
+                document.getElementById("finalDiv").innerHTML = "Please enter valid numbers!";
+                return;
+            }
+
+            // Generate a random number within the range
+            let rValue = Math.floor(Math.random() * (m2 - m1 + 1)) + m1;
+            document.getElementById("finalDiv").innerHTML = "The Random Value = " + rValue;
         }
-        (function()
-        {
-            
-          
-        })();
-       function vanish()
-       {
-        document.write("Session time out!!!!!!!!!");
-       }
-        setTimeout(vanish,3000);
+
+        // Function to simulate a session timeout
+        function vanish() {
+            document.write("Session time out!!!!!!!!!");
+        }
+
+        setTimeout(vanish, 30000);
     </script>
 </body>
 </html>

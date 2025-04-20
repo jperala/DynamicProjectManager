@@ -1,20 +1,159 @@
-<html>
-   <head></head>
-   <body>
-    <h3>Java script statements</h3>
-    <form id="f1">
-    <div id="div2">
-        <input id="name" placeholder="Enter your name"></input>
-        
-        <input id="country" placeholder="Enter your country"></input>
-        <input id="education" placeholder="Enter your education"></input>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Database</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #eef2f3, #8e9eab);
+            text-align: center;
+            padding: 20px;
+        }
 
-    <button type="submit" onclick="insert()">input</button>
-    <button  onclick="show()">show</button>
-  
-    
-    <script src="oopsjs.js"></script>
-    </div>
-</form>
-   </body> 
-</html>
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        #div2 {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #3498db;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-input { background-color: #2ecc71; color: white; }
+        .btn-show { background-color: #e74c3c; color: white; }
+        .btn-clear { background-color: #f39c12; color: white; }
+        .btn-delete { background-color: #d63031; color: white; }
+
+        #personDisplay {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #34495e;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Database</h1>
+    <form id="f1" onsubmit="event.preventDefault();">
+        <div id="div2">
+            <input id="name" placeholder="Enter your name" required>
+            <input id="country" placeholder="Enter your country" required>
+            <input id="education" placeholder="Enter your education" required>
+            <button type="button" onclick="insert()" class="btn-input">Input</button>
+            <button type="button" onclick="showInfo()" class="btn-show">Show Info</button>
+            <button type="button" onclick="clearInputs()" class="btn-clear">Clear Inputs</button>
+            <button type="button" onclick="clearDisplay()" class="btn-delete">Clear Display</button>
+        </div>
+    </form>
+    <div id="personDisplay"></div>
+
+    <script>
+        class Person {
+            constructor(names, country, education) {
+                this.names = names;
+                this.country = country;
+                this.education = education;
+            }
+
+            description() {
+                return `The person's name is ${this.names}. He is from ${this.country}. He has completed his ${this.education} from AUM.`;
+            }
+        }
+
+        let strArr = [];
+
+        function insert() {
+            let name = document.getElementById('name').value.trim();
+            let country = document.getElementById('country').value.trim();
+            let education = document.getElementById('education').value.trim();
+
+            if (!name || !country || !education) {
+                document.getElementById("personDisplay").innerHTML = "<p class='error'>❌ All fields are required!</p>";
+                return;
+            }
+
+            let newPerson = new Person(name, country, education);
+            strArr.push(newPerson);
+
+            // Hide previous record and clear input fields
+            document.getElementById("personDisplay").innerHTML = "";
+            document.getElementById('name').value = "";
+            document.getElementById('country').value = "";
+            document.getElementById('education').value = "";
+        }
+
+        function showInfo() {
+            if (strArr.length === 0) {
+                document.getElementById("personDisplay").innerHTML = "<p class='error'>❌ No records found!</p>";
+                return;
+            }
+
+            let displayText = "<h3>Student Records</h3>";
+            strArr.forEach((person, index) => {
+                displayText += `<p>${index + 1}. ${person.description()}</p>`;
+            });
+
+            document.getElementById("personDisplay").innerHTML = displayText;
+        }
+
+        function clearDisplay() {
+            strArr = []; // Reset the stored records
+            document.getElementById("personDisplay").innerHTML = "<p style='color:red;'>❌ All records have been deleted!</p>";
+        }
+
+        function clearInputs() {
+            document.getElementById('name').value = "";
+            document.getElementById('country').value = "";
+            document.getElementById('education').value = "";
+        }
+    </script>
+</body>
+</html> 

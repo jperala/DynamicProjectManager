@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Index Page</title>
+    <title>Custom Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
     <style>
         * {
             margin: 0;
@@ -33,9 +34,8 @@
         }
 
         h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #FFD700;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
 
         .box {
@@ -45,9 +45,10 @@
             margin: 20px 0;
         }
 
-        .box p {
-            font-size: 18px;
-            color: #ddd;
+        .boxdark {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            border-radius: 10px;
         }
 
         .button {
@@ -70,17 +71,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>INDEX</h1>
+        <h1>Dashboard</h1>
+
         <div class="box">
-            <h2>Welcome to My Custom-Designed Space!</h2>
+            <h2>Welcome to the custom dashboard</h2>
+            <p>It doesn’t have any functionalities yet, but stay tuned!</p>
         </div>
-        <div class="box">
-            <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                It has survived for centuries and remains essential in design and publishing.
-            </p>
-        </div>
-        <a href="dashboard.html" class="button">Go to Dashboard</a>
+
+        <div class="boxdark"></div>
+
+        <a href="index.html" class="button">Click here to go back to the Index</a>
     </div>
 </body>
 </html>

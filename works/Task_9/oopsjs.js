@@ -1,31 +1,47 @@
-const Person ={
-    names:"jeevan",
-    country:"India",
-    education:"Masters Degree",
-    description:function()
-    {
-        return "The person name is "+this.name+". He is from "+this.country+". He have completed his "+this.education+" from AUM";
+class Person {
+    constructor(names, country, education) {
+        this.names = names;
+        this.country = country;
+        this.education = education;
     }
-};
-function show()
-{
-    for(i=0;i<strArr.length;i++)
-    {
-    document.getElementById("div2").innerHTML=person.description();
+
+    description() {
+        return `The person's name is ${this.names}. He is from ${this.country}. He has completed his ${this.education} from AUM.`;
     }
 }
-let strArr=[];
-function insert()
-{
-   // event.preventDefault(); 
-    let n = document.getElementById("name").value;
-    person.names=n;
-    let c = document.getElementById("country").value;
-    person.country=c;
-    let e = document.getElementById("education").value;
-    let new_person = new Person(names,country,education);
-    person.education=e;
-    strArr.push(new_person);
-     //first get the value from the html
-    //next update the existing object copy
+
+let strArr = [];
+
+function insert() {
+    let n = document.getElementById('name').value.trim();
+    let c = document.getElementById('country').value.trim();
+    let e = document.getElementById('education').value.trim();
+
+    if (!n || !c || !e) {
+        alert("All fields are required!");
+        return;
+    }
+
+    let newPerson = new Person(n, c, e);
+    strArr.push(newPerson);
+
+    // Clear the display and reset input fields for new entries
+    document.getElementById("div2").innerHTML = "";
+    document.getElementById('name').value = "";
+    document.getElementById('country').value = "";
+    document.getElementById('education').value = "";
+}
+
+function showInfo() {
+    if (strArr.length === 0) {
+        document.getElementById("div2").innerHTML = `<p style="color:red;">❌ No records found!</p>`;
+        return;
+    }
+
+    let displayText = "<h3>Student Records</h3>";
+    strArr.forEach((person, index) => {
+        displayText += `<p>${index + 1}. ${person.description()}</p>`;
+    });
+
+    document.getElementById("div2").innerHTML = displayText;
 }

@@ -1,35 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Dynamic Star Pattern</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(120deg, #f0f8ff, #87cefa);
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 250px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        #div2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <input id="user_input" placeholder="Enter  the number of lines" onkeyup="generateShape()"></input>
+    <h2>Enter a number to generate pattern</h2>
+    <input id="user_input" placeholder="Enter a number" oninput="generateShape()">
     <div id="div2"></div>
-   <script >
-    let colors=["yellow","green","red","blue","orange"];
-    let idx=0;
-    let size=colors.length;
 
-    function generateShape()
-    {
-        let n=parseInt(document.getElementById("user_input").value);
-        let text ="";
-        for(let i=0;i<=n;i++)
-    {
-        for(let j=0;j<i;j++)
-    {
-        text+="* "
-    }
-    text+="<br>";
-    }
-    document.getElementById("div2").innerHTML=text;
-    document.getElementById("div2").style="color:"+colors[idx];
-    idx=(idx+1)%size;
+    <script>
+        function getHighContrastColor() {
+            const colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#FFFFFF", "#000000"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
 
-    }
-   </script>
-   
+        function generateShape() {
+            let n = parseInt(document.getElementById("user_input").value);
+            if (isNaN(n) || n < 0) {
+                document.getElementById("div2").innerHTML = "<span style='color:red;'>❌ Please enter a valid positive number!</span>";
+                return;
+            }
 
+            let text = "";
+            let patternColor = getHighContrastColor(); // Generate a high-contrast color only when modifying the pattern
+            
+            for (let i = 0; i <= n; i++) {
+                for (let j = 0; j < i; j++) {
+                    text += `<span style="color:${patternColor};">★</span> `;
+                }
+                text += "<br>";
+            }
+
+            document.getElementById("div2").innerHTML = text;
+        }
+    </script>
 </body>
 </html>
